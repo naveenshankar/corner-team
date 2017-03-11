@@ -1,22 +1,17 @@
 import React from 'react'
 import RestaurantListItem from './RestaurantListItem'
 
-export default class RestaurantList extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = { 
-            restaurants: [
-                { id: '1111111' }, 
-                { id: '2222222' }, 
-                { id: '3333333' }, 
-                { id: '4444444' }, 
-                { id: '5555555' }, 
-            ] 
-        }
+import { connect } from 'react-redux'
 
+@connect((store) => {
+    console.log('store', store)
+    return {
+        restaurants: store.restaurants.restaurants
     }
+})
+export default class RestaurantList extends React.Component {
     render() {
-        const restaurantList = this.state.restaurants.map((restaurant) => {
+        const restaurantList = this.props.restaurants.map((restaurant) => {
             return <RestaurantListItem key={restaurant.id} id={restaurant.id} /> 
         })
         return <div>{restaurantList}</div>

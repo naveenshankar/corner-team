@@ -8,10 +8,9 @@ export default function reducer(state = {
     ] 
 }, action) {
     switch (action.type){
-        case 'SET_SIGNUP_FLASH': 
-            return {...state, signupFlash: action.payload }
+        case 'SET_RESTAURANTS': 
+            return {...state, restaurants: action.payload}
         default: 
             return state
-    
     }
 }

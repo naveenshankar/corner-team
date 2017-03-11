@@ -10,6 +10,9 @@ import NavBar from './NavBar'
     }
 })
 class App extends React.Component {
+    onComponentWillMount () {
+        this.props.dispatch(createSession(payload))
+    }
     render() {
         return (
             <div>
@@ -20,5 +23,4 @@ class App extends React.Component {
         )
     }
 }
-
 export default App
