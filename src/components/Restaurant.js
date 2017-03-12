@@ -5,7 +5,7 @@ export default class Restaurant extends React.Component {
     render() {
         return (
             <div>
-                <IndexLink to='/'>Restuants</IndexLink>
+                <IndexLink to='/'>Restaurant</IndexLink>
                 <div> id: {this.props.routeParams.id} </div>
             </div>
         )
