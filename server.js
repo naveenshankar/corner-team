@@ -30,6 +30,108 @@ app.route('/getAuthCode')
 		    'Authorization': 'Basic ' + new Buffer('cpa_5069' + ':' + 'aMrmcXH4BuUlLIyN6paPhseSlrzMh6Lz').toString('base64')
 		  }
 		};
+		
+		var request = https.get(options, (response) => {
+			var body = "";
+			response.on('data', function(data) {
+				console.log(data);
+				body += data;
+				res.send(body);
+			});
+			response.on('end', function() {
+				//here we have the full response, html or json object
+				console.log(body);
+			})
+			response.on('error', function(e) {
+				console.log("Got error: " + e.message)
+			});
+		});
+	
+    })
+
+app.route('/getListings')
+    .get((req, res) => {
+        console.log("getting restaurants from opentable");
+
+		var options = {
+		  host: 'platform.otqa.com',
+		  port: 443,
+		  path: '/sync/listings',
+		  method: 'GET',
+		  headers: {
+		  	'Authorization': 'bearer 27037c67-f394-4cfd-ab51-069ac71132fb',
+		  	'Content-Type': 'application/json'
+		  }
+		};
+		
+		var request = https.get(options, (response) => {
+			var body = "";
+			response.on('data', function(data) {
+				console.log(data);
+				body += data;
+				res.send(body);
+			});
+			response.on('end', function() {
+				//here we have the full response, html or json object
+				console.log(body);
+			})
+			response.on('error', function(e) {
+				console.log("Got error: " + e.message)
+			});
+		});
+	
+    })
+
+// app.route('/getListings')
+//     .get((req, res) => {
+//         console.log("getting restaurants from opentable");
+
+// 		var options = {
+// 			host: 'platform.otqa.com',
+// 			port: 443,
+// 			path: '/sync/listings',
+// 			method: 'GET',
+// 			headers: {
+// 				'Authorization': 'bearer 27037c67-f394-4cfd-ab51-069ac71132fb',
+// 				'Content-Type': 'application/json'
+// 			}
+// 		};
+
+// 		console.log(options);
+		
+// 		var request = https.get(options, (response) => {
+// 			var body = "";
+// 			response.on('data', function(data) {
+// 				console.log(data);
+// 				body += data;
+// 				res.send(response);
+// 			});
+// 			response.on('end', function() {
+// 				//here we have the full response, html or json object
+// 				console.log(body);
+// 			})
+// 			response.on('error', function(e) {
+// 				console.log("Got error: " + e.message)
+// 			});
+
+// 			//console.log(response.body);
+// 		});
+	
+//     })
+
+ app.route('/getRestaurantInfo')
+    .get((req, res) => {
+        console.log("getting restaurants from opentable");
+
+		var options = {
+		  host: 'oauth-pp.opentable.com',
+		  port: 443,
+		  path: '/api/v2/oauth/token?grant_type=client_credentials',
+		  method: 'POST',
+		  headers: {
+		    'Authorization': 'Basic ' + new Buffer('cpa_5069' + ':' + 'aMrmcXH4BuUlLIyN6paPhseSlrzMh6Lz').toString('base64')
+		  }
+		};
 
 		console.log(options)
 
@@ -59,4 +161,4 @@ app.route('/getRestaurant/:id')
         res.send({});
     })
 
-server.listen(3002) 
+server.listen(3000) 
