@@ -18,3 +18,8 @@ Rotten Tomatoes style restaurant rating/review system
 - Serverless
 - Semantic UI
 - Open Table API
+
+
+API
+
+https://platform.otqa.com/documentation/secure#make-reservation // for makeing a res!!!
