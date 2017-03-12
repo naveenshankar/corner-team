@@ -6,23 +6,21 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 import App from './components/App'
+import RestaurantList from './components/RestaurantList'
 import Home from './components/Home'
-import Signup from './components/Signup'
-import Signin from './components/Signin'
-import Users from './components/Users'
+import Restaurant from './components/Restaurant'
 
 render(
     (
         <Provider store={store}>
             <Router history={hashHistory}>
                 <Route path='/' component={App}>
-                    <IndexRoute component={Home} />
-                    <Route path='signup' components={Signup} />
-                    <Route path='signin' components={Signin} />
-                    <Route path='users' components={Users} />
+                    <IndexRoute component={RestaurantList} />
+                    <Route path=':id' component={Restaurant}/>
                 </Route>
             </Router>
         </Provider>
     ),
     document.getElementById('root')
 )
+
