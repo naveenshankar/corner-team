@@ -1,5 +1,7 @@
 import React from 'react'
 import { IndexLink } from 'react-router'
+import { connect } from 'react-redux'
+
 
 export default class Restaurant extends React.Component {
     render() {

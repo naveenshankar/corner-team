@@ -8,9 +8,12 @@ export default function reducer(state = {
         { id: '66666' }, 
     ] 
 }, action) {
+    console.log('action', action)
+    let temp = {...state, restaurants: action.payload}
+    console.log('temp', temp)
     switch (action.type){
         case 'SET_RESTAURANTS': 
-            return {...state, restaurants: action.payload}
+            return temp
         default: 
             return state
     }

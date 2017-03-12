@@ -1,10 +1,16 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
+import { setRestaurants } from '../actions/restaurant.js'
 
+@connect((store) => {
+    return 
+})
 export default class App extends React.Component {
-    onComponentWillMount () {
-        this.props.dispatch(createSession(payload))
+    componentWillMount () {
+        console.log('WILL MONT')
+        console.log('this.props.dispatch', this.props.dispatch)
+        this.props.dispatch(setRestaurants())
     }
     render() {
         return (
