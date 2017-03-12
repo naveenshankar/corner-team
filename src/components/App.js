@@ -2,7 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-class App extends React.Component {
+export default class App extends React.Component {
     onComponentWillMount () {
         this.props.dispatch(createSession(payload))
     }
@@ -14,4 +14,3 @@ class App extends React.Component {
         )
     }
 }
-export default App
