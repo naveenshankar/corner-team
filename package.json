@@ -29,7 +29,9 @@
     "redux-logger": "^2.8.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build",
+    "build": "webpack -d && cp src/client/index.html public/index.html"
   },
   "keywords": [],
   "author": "",
