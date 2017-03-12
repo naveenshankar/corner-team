@@ -1,7 +1,13 @@
+var path = require('path');
+
+var DEST_DIR = path.resolve(__dirname, "public");
+var SRC_DIR = path.resolve(__dirname, "src");
+
 module.exports = {
     entry: __dirname + '/src',
     output: {
-        path: '/'
+        path: DEST_DIR,
+        filename: "bundle.js",
     },
     devtool: 'source-maps',
     module: {
