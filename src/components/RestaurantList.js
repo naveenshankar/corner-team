@@ -12,7 +12,7 @@ import { connect } from 'react-redux'
 export default class RestaurantList extends React.Component {
     render() {
         const restaurantList = this.props.restaurants.map((restaurant) => {
-            return <RestaurantListItem key={restaurant.rid} rid={restaurant.rid} /> 
+            return <RestaurantListItem key={restaurant.rid} name={restaurant.name} rid={restaurant.rid} /> 
         })
         return <div>{restaurantList}</div>
     }

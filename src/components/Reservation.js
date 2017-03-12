@@ -12,6 +12,7 @@ export default class Reservation extends React.Component {
                 <input id='partySize' name='partySize' type='text' />
                 <label>Name</label>
                 <input id='name' name='name' type='text' />
+                <button>Reserve Table</button>
             </div>
         )
     }
