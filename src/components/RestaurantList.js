@@ -3,17 +3,16 @@ import RestaurantListItem from './RestaurantListItem'
 
 import { connect } from 'react-redux'
 
-@connect((store) => {
-    console.log('store', store)
+@connect((state) => {
+    console.log('state', state)
     return {
-        restaurants: store.restaurant.restaurants
+        restaurants: state.restaurant.restaurants
     }
 })
 export default class RestaurantList extends React.Component {
     render() {
-        console.log('this.props', this.props)
         const restaurantList = this.props.restaurants.map((restaurant) => {
-            return <RestaurantListItem key={restaurant.id} id={restaurant.id} /> 
+            return <RestaurantListItem key={restaurant.rid} rid={restaurant.rid} /> 
         })
         return <div>{restaurantList}</div>
     }

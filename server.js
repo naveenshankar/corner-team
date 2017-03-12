@@ -68,11 +68,11 @@ app.route('/getListings')
 			response.on('data', function(data) {
 				console.log(data);
 				body += data;
-				res.send(body);
 			});
 			response.on('end', function() {
 				//here we have the full response, html or json object
-				console.log(body);
+				console.log('typeof body', typeof body);
+				res.send(body);
 			})
 			response.on('error', function(e) {
 				console.log("Got error: " + e.message)

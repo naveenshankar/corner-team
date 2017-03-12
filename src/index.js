@@ -16,7 +16,7 @@ render(
             <Router history={hashHistory}>
                 <Route path='/' component={App}>
                     <IndexRoute component={RestaurantList} />
-                    <Route path=':id' component={Restaurant}/>
+                    <Route path=':rid' component={Restaurant}/>
                 </Route>
             </Router>
         </Provider>
