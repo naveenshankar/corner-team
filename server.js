@@ -12,7 +12,6 @@ const base64 = require('base-64');
 const app = express()
 const server = http.createServer(app)
 
-app.use(express.static(__dirname + '/public'))
 app.use(webpackDevMiddleware(webpack(webpackConfig)))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -160,5 +159,6 @@ app.route('/getRestaurant/:id')
         console.log("getting restaurant information from opentable");
         res.send({});
     })
+app.use(express.static(__dirname + '/public'))
 
-server.listen(3000) 
+server.listen(3000, () => console.log('Listening on 3000'))
