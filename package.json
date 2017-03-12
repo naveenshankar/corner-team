@@ -31,9 +31,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run build",
-    "startProd": "npm run build",
-    "build": "webpack -d && cp src/client/index.html public/index.html",
-    "buildProd": "webpack -d && cp src/client/index.html public/index.html"
+    "buildDev": "node server.js && webpack -d && cp src/client/index.html public/index.html",
+    "build": "webpack -d && cp src/client/index.html public/index.html"
   },
   "keywords": [],
   "author": "",
