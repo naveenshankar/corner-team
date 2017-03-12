@@ -31,19 +31,11 @@ app.route('/getAuthCode')
 		};
 		
 		let request = https.get(options, (response) => {
-			let body = "";
-			response.on('data', function(data) {
-				console.log(data);
-				body += data;
-				res.send(body);
-			});
-			response.on('end', function() {
-				//here we have the full response, html or json object
-				console.log(body);
-			})
-			response.on('error', function(e) {
-				console.log("Got error: " + e.message)
-			});
+			let body = ""
+			response.on('data', (data) => body += data )
+            //here we have the full response, html or json object
+			response.on('end', () => res.send(body))
+			response.on('error', (e) => console.log("Got error: " + e.message) )
 		});
 	
     })
