@@ -5,6 +5,7 @@ export default function reducer(state = {
         { id: '3333333' }, 
         { id: '4444444' }, 
         { id: '5555555' }, 
+        { id: '66666' }, 
     ] 
 }, action) {
     switch (action.type){
